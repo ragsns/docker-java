@@ -13,7 +13,7 @@ For explanation, please visit this article - [Docker and Spring Boot](https://mk
 ## How to run this?
 ## make sure DOCKER_DEFAULT_PLATFORM is not set
 ```bash
-$ sdk install java 11.0.20-amzn
+$ 
 $ export DOCKER_DEFAULT_PLATFORM=
 $ git clone https://github.com/ragsns/docker-java
 $ cd docker-spring-boot
@@ -27,6 +27,11 @@ $ java -jar target/spring-boot-web.jar
 // create a docker image
 $ sudo docker build -t spring-boot:1.0 .
 // for multi-arch
+// if necessary install buildx as below on gitpod
+// from https://github.com/docker/buildx/releases/tag/v0.11.2
+$ cp buildx-v0.11.2.darwin-amd64 $_
+$ docker login // login to docker or any other registry
+$ docker buildx create --name mybuilder --use --bootstrap // one time only
 $ docker buildx build --no-cache \
 --push \                  
 --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --tag ragsns/spring-boot-multi .

@@ -30,11 +30,13 @@ $ sudo docker build -t spring-boot:1.0 .
 // for multi-arch
 // if necessary install buildx as below on gitpod
 // from https://github.com/docker/buildx/releases/tag/v0.11.2
-$ cp buildx-v0.11.2.darwin-amd64 $_
+// or as below
+$ cp buildx-v0.11.2.darwin-amd64 
 $ docker login // login to docker or any other registry
+$ docker buildx bake "https://github.com/docker/buildx.git"
 $ docker buildx create --name mybuilder --use --bootstrap // one time only
 $ docker buildx build --no-cache \
---push \                  
+--push \
 --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --tag ragsns/spring-boot-multi .
 // run it
 $ sudo docker run -d -p 8080:8080 -t spring-boot:1.0

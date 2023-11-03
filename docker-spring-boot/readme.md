@@ -16,6 +16,7 @@ For explanation, please visit this article - [Docker and Spring Boot](https://mk
 $ 
 $ export DOCKER_DEFAULT_PLATFORM=
 $ git clone https://github.com/ragsns/docker-java
+$ sdk install java 11.0.21-amzn // make it default
 $ cd docker-spring-boot
 $ mvn clean package
 $ java -jar target/spring-boot-web.jar
